@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="PlantDoctorAI.SiteMaster" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Plant Doctor AI</title>
+    <link href="~/Css/Site.css" rel="stylesheet" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server" novalidate="novalidate">
+
+        <header class="topbar">
+            <a href="Dashboard.aspx" class="brand">
+                <span class="brand-box"><span class="ico">🌿</span></span>
+                <span>Plant Doctor AI</span>
+            </a>
+            <a href="Profile.aspx" class="topbar-user">
+                <span><%= Session["UserName"] ?? "Arjun" %></span>
+                <span class="topbar-avatar">A</span>
+            </a>
+        </header>
+
+        <div class="app-body">
+            <aside class="sidebar">
+                <nav>
+                    <div class="side-title">Main</div>
+                    <a href="Dashboard.aspx" class="<%= Active("Dashboard") %>"><span class="ico">🏠</span><span>Home</span></a>
+                    <a href="ScanPlant.aspx" class="<%= Active("ScanPlant,Analyzing,HealthyResult,DiseaseResult") %>"><span class="ico">📷</span><span>Scan Plant</span></a>
+                    <a href="PlantGuides.aspx" class="<%= Active("PlantGuides,PlantDetails,CareGuide") %>"><span class="ico">🌿</span><span>Plant Guides</span></a>
+                    <a href="ScanHistory.aspx" class="<%= Active("ScanHistory") %>"><span class="ico">🕘</span><span>Scan History</span></a>
+
+                    <div class="side-title">Account</div>
+                    <a href="Profile.aspx" class="<%= Active("Profile,EditProfile,ChangePassword") %>"><span class="ico">👤</span><span>Profile</span></a>
+                    <a href="HelpSupport.aspx" class="<%= Active("HelpSupport") %>"><span class="ico">❓</span><span>Help &amp; Support</span></a>
+                    <a href="Login.aspx" class="side-item logout"><span class="ico">🚪</span><span>Logout</span></a>
+                </nav>
+
+                <div class="side-help">
+                    <strong>Need help?</strong>
+                    <p>Our plant experts are here for you.</p>
+                    <a href="HelpSupport.aspx" class="btn btn-white btn-sm btn-block">Get Help</a>
+                </div>
+            </aside>
+
+            <main class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </main>
+        </div>
+    </form>
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />
+</body>
+</html>

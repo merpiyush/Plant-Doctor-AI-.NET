@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Plant Doctor AI</title>
+    <link href="~/Css/Site.css" rel="stylesheet" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server" novalidate="novalidate">
+        <div class="auth">
+            <section class="auth-hero">
+                <div class="auth-logo"><span class="ico ico-xl">🌿</span></div>
+                <asp:ContentPlaceHolder ID="HeroContent" runat="server" />
+            </section>
+            <section class="auth-form-side">
+                <div class="auth-card">
+                    <asp:ContentPlaceHolder ID="FormContent" runat="server" />
+                </div>
+            </section>
+        </div>
+    </form>
+</body>
+</html>
